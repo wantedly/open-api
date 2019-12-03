@@ -85,6 +85,7 @@ https://platform.wantedly.com/profile_buttons?partner_uuid=ec7a8fc4-6731-4467-ba
 | `course_type` | 文字列 | 自動推定 | Wantedly プロフィール上での扱い。`skill` = スキル、`certification` = 資格・認定、`school` ＝ 学歴相当。<br>指定しない場合は `required_learning_minutes` と `certified` から推定されます。 |
 | `sign_mode` | 文字列 | 必須 | 署名のモード。情報の改ざん・偽装防止のアルゴリズムの強度が設定できます。<br>`simple` = 簡易モード (非推奨): コースの情報のみ検証される。<br>`strict` = 厳格モード (推奨): コースと受講者のすべての情報が検証される。 |
 | `signature` | 文字列 | 必須 | 署名の値。情報が改ざん・偽装されていないかを検証するために使われます。 |
+| `debug` | ブール | `false` | 開発環境において、デバッグ画面を表示する場合は `true` を指定します。 |
 
 ## 署名の計算方法
 
@@ -234,3 +235,21 @@ https://platform.wantedly.com/profile_buttons?partner_uuid=ec7a8fc4-6731-4467-ba
   href="https://platform.wantedly.com/profile_buttons?partner_uuid=ec7a8fc4-6731-4467-ba11-c196ce02f0b9&course_uid=70377&user_uid=5286528&partner_name=%E3%82%A6%E3%82%A9%E3%83%B3%E3%83%86%E3%83%83%E3%83%89%E3%83%AA%E3%83%BC%E5%A4%A7%E5%AD%A6&course_name=%E3%82%B9%E3%83%BC%E3%83%91%E3%83%BC%E3%82%AF%E3%83%AA%E3%82%A8%E3%82%A4%E3%82%BF%E3%83%BC%E8%AC%9B%E5%BA%A7&course_url=https%3A%2F%2Fexample.com%2Fcourses%2F70377&required_learning_minutes=1500&certified=true&acquired_at=1568277853&course_type=certification&sign_mode=strict&signature=95912303d31c2eb61ddbcf0a5d921a302ecc72669b280c1b235d4780128a93b8"
 >Wantedlyに追加</a>
 ```
+
+## デバッグ画面
+
+デバッグ画面に関して
+正式リリース直前までは、プロフィール画面 (概要 図2) の代わりにデバッグ画面が表示されるようになっています。
+
+**連携に成功した場合**
+
+Verified: true が表示され、Errors の下に何もメッセージが出ていない状態になります。
+
+![](https://user-images.githubusercontent.com/1695538/65676046-2efdbb80-e08a-11e9-8498-00edf0141099.png)
+
+**エラーがある場合**
+
+署名が不正な値の場合は Verified: false が表示されます。
+その他の問題点は Errors の下に表示されます。
+
+![](https://user-images.githubusercontent.com/1695538/65676048-2efdbb80-e08a-11e9-919f-b959f61fe6a3.png)
