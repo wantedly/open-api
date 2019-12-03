@@ -238,9 +238,6 @@ https://platform.wantedly.com/profile_buttons?partner_uuid=ec7a8fc4-6731-4467-ba
 
 ## デバッグ画面
 
-デバッグ画面に関して
-正式リリース直前までは、プロフィール画面 (概要 図2) の代わりにデバッグ画面が表示されるようになっています。
-
 **連携に成功した場合**
 
 Verified: true が表示され、Errors の下に何もメッセージが出ていない状態になります。
