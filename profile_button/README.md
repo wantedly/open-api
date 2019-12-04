@@ -93,3 +93,7 @@
 ## ボタンの利用の仕方・技術仕様
 
 [こちら](./spec.md)のページへ。
+
+## API利用規約
+
+ご利用頂く場合は、[API 利用規約](https://service-terms.wantedly.com/open_api/ja_JP)が適用されます。
