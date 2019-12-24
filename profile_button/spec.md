@@ -141,7 +141,7 @@ require "openssl"
 PARTNER_UUID = "ec7a8fc4-6731-4467-ba11-c196ce02f0b9"
 SECRET_KEY = "9c61ef2e79993dccfbcdf998f93b7b836f7d9316b3ea2a48123e9cf87c5373d0"
 
-# 設定値
+# 設定値。値はサンプルです
 params = {
   partner_uuid: PARTNER_UUID,
   course_uid: "70377",
@@ -164,6 +164,7 @@ signature = OpenSSL::HMAC.hexdigest("SHA256", sign_key, sign_data)
 # パラメタに追加
 params[:sign_mode] = 'strict'
 params[:signature] = signature
+# params[:debug] = true
 
 # ボタンの URL
 button_href = "https://platform.wantedly.com/profile_buttons?#{URI.encode_www_form(params)}"
@@ -182,7 +183,7 @@ printf "ボタンのURL:\n%s\n\n", button_href
 const PARTNER_UUID = "ec7a8fc4-6731-4467-ba11-c196ce02f0b9";
 const SECRET_KEY = "9c61ef2e79993dccfbcdf998f93b7b836f7d9316b3ea2a48123e9cf87c5373d0";
 
-// 設定値
+// 設定値。値はサンプルです
 $params = array(
   "partner_uuid" => PARTNER_UUID,
   "course_uid" => "70377",
@@ -191,7 +192,7 @@ $params = array(
   "course_name" => "スーパークリエイター講座",
   "course_url" => "https://example.com/courses/70377",
   "required_learning_minutes" => 1500,
-  "certified" => "true", // 注意: 文字列にしないと `1` になってしまう
+  "certified" => "true", // 注意: 文字列にしないと `0`/`1` になってしまう
   "acquired_at" => 1568277853,
   "course_type" => "certification",
 );
@@ -205,6 +206,7 @@ $signature = hash_hmac("sha256", $sign_data, $sign_key, false);
 // パラメタに追加
 $params["sign_mode"] = "strict";
 $params["signature"] = $signature;
+// $params["debug"] = true;
 
 // ボタンの URL
 $button_href = "https://platform.wantedly.com/profile_buttons?" . http_build_query($params);
