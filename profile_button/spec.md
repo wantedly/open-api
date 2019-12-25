@@ -132,7 +132,14 @@ https://www.wantedly.com/platform_partners/new_signature にて、`secret_key` �
 2. パラメタの値をキーの辞書順にし `:` (colon) によって結合した文字列を作ります。
 3. 2\. で作った文字列をメッセージ(データ)として、これを [HMAC-SHA256](https://ja.wikipedia.org/wiki/HMAC) を用い、秘密鍵 `secret_key` で署名します。
 
-<details><summary>Ruby での実装例 (外部ライブラリの依存なし)</summary>
+## 実装例
+
+厳格モードでの実装を Ruby と PHP のコードを用いて説明します。<br>
+外部ライブラリの依存なしでサンプルコードはそのまま実行することが可能です。
+
+### Ruby の場合
+
+<details><summary>コードを見る</summary>
 
 ```ruby
 require "openssl"
@@ -141,7 +148,8 @@ require "openssl"
 PARTNER_UUID = "ec7a8fc4-6731-4467-ba11-c196ce02f0b9"
 SECRET_KEY = "9c61ef2e79993dccfbcdf998f93b7b836f7d9316b3ea2a48123e9cf87c5373d0"
 
-# 設定値。値はサンプルです
+# 設定値
+# 値はサンプルです。ガイドラインと仕様書に従って正しい値を入れてください。
 params = {
   partner_uuid: PARTNER_UUID,
   course_uid: "70377",
@@ -176,14 +184,17 @@ printf "ボタンのURL:\n%s\n\n", button_href
 
 </details>
 
-<details><summary>PHP での実装例 (外部ライブラリの依存なし)</summary>
+### PHP の場合
+
+<details><summary>コードを見る</summary>
 
 ```php
 // Wantedly から発行される情報
 const PARTNER_UUID = "ec7a8fc4-6731-4467-ba11-c196ce02f0b9";
 const SECRET_KEY = "9c61ef2e79993dccfbcdf998f93b7b836f7d9316b3ea2a48123e9cf87c5373d0";
 
-// 設定値。値はサンプルです
+// 設定値
+// 値はサンプルです。ガイドラインと仕様書に従って正しい値を入れてください。
 $params = array(
   "partner_uuid" => PARTNER_UUID,
   "course_uid" => "70377",
@@ -218,7 +229,9 @@ printf("ボタンのURL:\n%s\n\n", $button_href);
 
 </details>
 
-実行結果:
+### 実行結果
+
+上のどちらのコードも実行すると同じ結果を出力します。
 
 ```
 署名データ:
