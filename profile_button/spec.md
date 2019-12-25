@@ -102,7 +102,7 @@ https://platform.wantedly.com/profile_buttons?partner_uuid=ec7a8fc4-6731-4467-ba
 
 ### 簡易モードの場合
 
-`sign_mode=simple` の場合は、以下の4つの値のみが改ざんできなくなります。
+`sign_mode=simple` の場合は、以下の4値のみが改ざんできなくなります。
 
 - `partner_uuid`
 - `course_uid`
@@ -114,7 +114,7 @@ https://www.wantedly.com/platform_partners/new_signature にて、`secret_key` �
 
 ### 厳格モードの場合
 
-`sign_mode=strict` の場合は、`sign_mode` と `signature` を除く全ての値が改ざんできなくなります。
+`sign_mode=strict` の場合は、以下の10値が改ざんできなくなります。
 
 - `partner_uuid`
 - `course_uid`
